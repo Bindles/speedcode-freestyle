@@ -1,0 +1,7 @@
+  <%= current_user.inspect %>
+<h2>Profile</h2>
+
+  <%=  @profile.user.inspect %><br>
+  <%= @profile.username.blank? ? @profile.user.email : @profile.username + ' (' + @profile.user.email + ')'%> <br>
+  Bio: <%= @profile.bio %> <br>
+  Avatar: <%= @profile.avatar_url %>
