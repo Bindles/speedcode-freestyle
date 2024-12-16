@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_one :profile, dependent: :destroy
+  has_many :messages
 
 
   after_create :build_default_profile
