@@ -6,7 +6,11 @@ class User < ApplicationRecord
 
   has_many :posts
   has_one :profile, dependent: :destroy
-  has_many :messages
+  has_many :sent_messages, class_name: "Message", foreign_key: "sender_id", dependent: :destroy
+  has_many :received_messages, class_name: "Message", foreign_key: "recipient_id", dependent: :destroy
+
+  # Alias for User.messages -> messages the user received
+  has_many :messages, -> { distinct }, class_name: "Message", foreign_key: "recipient_id"
 
 
   after_create :build_default_profile

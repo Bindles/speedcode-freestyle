@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_15_060508) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_16_073201) do
   create_table "messages", force: :cascade do |t|
     t.integer "sender_id", null: false
     t.integer "recipient_id", null: false
@@ -36,6 +36,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_15_060508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.integer "age"
+    t.string "location"
     t.index ["user_id"], name: "index_profiles_on_user_id"
     t.index ["username"], name: "index_profiles_on_username", unique: true
   end

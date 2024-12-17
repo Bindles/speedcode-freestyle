@@ -7,9 +7,13 @@ class ProfilesController < ApplicationController
   def edit
   end
 
+
   def update
-    @user.profile.update! params.require(:profile).permit(:username, :bio, :avatar_url)
-    redirect_to user_profile_path(@user)
+    if @user.profile.update params.require(:profile).permit(:username, :age, :location, :bio, :avatar_url)
+      redirect_to user_profile_path(@user), notice: "Profile updated successfully"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private

@@ -2,7 +2,7 @@
 
   <p>
     <strong>Content:</strong>
-    <%= post.user.profile.blank? ? post.user.email : username %>: <%= post.content %>
+    <%= post.user.profile.blank? ? post.user.email : post.user.profile.username %>: <%= post.content %>
   </p>
   created by 
   <% if 1 == 2 %>

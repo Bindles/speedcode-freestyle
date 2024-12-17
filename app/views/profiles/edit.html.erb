@@ -1,6 +1,23 @@
 <%= form_with(model: @profile, url: user_profile_path(@user)) do |form| %>
+<% if @profile.errors.any? %>
+  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+    <h2 class="font-bold">The following errors prevented the profile from being saved:</h2>
+    <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <%= form.label :username %>
   <%= form.text_field :username %>
+
+  <%= form.label :age %>
+  <%= form.text_field :age %>
+
+  <%= form.label :location %>
+  <%= form.text_field :location %>    
 
   <%= form.label :bio %>
   <%= form.text_field :bio %>
